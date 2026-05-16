@@ -90,12 +90,17 @@ sys_uptime(void)
   return xticks;
 }
 
-sys_getgid(void){
+uint64
+sys_getgid(void)
+{
   return getgid();
 }
 
-sys_setgid(void){
+uint64
+sys_setgid(void)
+{
   int gid;
   argint(0, &gid);
   setgid(gid);
+  return 0;
 }

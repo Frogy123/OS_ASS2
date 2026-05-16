@@ -28,6 +28,11 @@ void lcg_srand(uint seed);
 uint lcg_rand(void);
 void setgid(int gid);
 int getgid(void);
+int israeli_create(int favoritism);
+int israeli_acquire(int lock_id);
+int israeli_release(int lock_id);
+int israeli_destroy(int lock_id);
+
 
 // ulib.c
 int stat(const char*, struct stat*);

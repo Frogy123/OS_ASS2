@@ -106,6 +106,8 @@ void            yield(void);
 int             either_copyout(int user_dst, uint64 dst, void *src, uint64 len);
 int             either_copyin(void *dst, int user_src, uint64 src, uint64 len);
 void            procdump(void);
+void            setgid(int);
+int             getgid(void);
 
 // swtch.S
 void            swtch(struct context*, struct context*);
@@ -188,6 +190,13 @@ void            virtio_disk_intr(void);
 //rand.c
 void          lcg_srand(unsigned int seed);
 unsigned int  lcg_rand(void);
+
+// israeli_lock.c
+void            israeli_lockinit(void);
+int             israeli_create(int favoritism);
+int             israeli_acquire(int lock_id);
+int             israeli_release(int lock_id);
+int             israeli_destroy(int lock_id);
 
 
 // number of elements in fixed-size array
