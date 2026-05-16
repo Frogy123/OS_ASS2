@@ -89,3 +89,13 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+sys_getgid(void){
+  return getgid();
+}
+
+sys_setgid(void){
+  int gid;
+  argint(0, &gid);
+  setgid(gid);
+}

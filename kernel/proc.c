@@ -681,3 +681,18 @@ procdump(void)
     printf("\n");
   }
 }
+
+void setgid(int gid){
+  struct proc *p = myproc();
+  acquire(&p->lock);
+  p->gid = gid;
+  release(&p->lock);
+}
+
+int getgid(void){
+  struct proc *p = myproc();
+  acquire(&p->lock);
+  int gid = p->gid;
+  release(&p->lock);
+  return gid;
+}
